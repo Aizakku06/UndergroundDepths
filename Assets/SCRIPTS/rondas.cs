@@ -1,12 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class RoundSystem : MonoBehaviour
 {
     public int currentRound = 1;
     public int maxRounds = 10;
 
-    public Text roundText; // Ahora es pública para poder asignarla desde el Editor
+    public TextMeshProUGUI roundText; // Ahora es pública para poder asignarla desde el Editor
+    public PlayerControl pc;
+    public EnemyControl ec;
+
 
     void Start()
     {
