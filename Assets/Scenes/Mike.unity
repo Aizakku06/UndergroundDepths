@@ -1099,7 +1099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2447681124393231431, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 219.08
+      value: 219.28
       objectReference: {fileID: 0}
     - target: {fileID: 2447681124393231431, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1119,23 +1119,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2447681124393231431, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2447681124393231431, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2447681124393231431, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.00028169042
       objectReference: {fileID: 0}
     - target: {fileID: 2447681124393231431, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -146.8
+      value: -156.1
       objectReference: {fileID: 0}
     - target: {fileID: 2447681124393231431, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -221.4
+      value: -222.2
       objectReference: {fileID: 0}
     - target: {fileID: 2447681124393231431, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1147,7 +1147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2447681124393231431, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -0.032
       objectReference: {fileID: 0}
     - target: {fileID: 3308781537320372624, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
       propertyPath: m_Name
@@ -1173,6 +1173,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3308781537320372624, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1181944220}
+    - targetCorrespondingSourceObject: {fileID: 3308781537320372624, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1181944221}
   m_SourcePrefab: {fileID: 100100000, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
 --- !u!224 &1181944215 stripped
 RectTransform:
@@ -1193,6 +1196,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1795121971}
   cantidadDeCura: 10
+--- !u!95 &1181944221
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106067808}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b9a8fb45b80a6541be16e888183d8ae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1184084943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1795,6 +1819,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060075697}
   m_CullTransparentMesh: 1
+--- !u!1 &2079692377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3308781537320372624, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
+  m_PrefabInstance: {fileID: 3905630909713504800}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2079692382
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079692377}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fbe7602bb5f23c14e9dd0d20da4f1d20, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2114730654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,7 +2012,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3308781537320372624, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2079692382}
   m_SourcePrefab: {fileID: 100100000, guid: 456e8f7478b403446a08ff42b9bed7fe, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
