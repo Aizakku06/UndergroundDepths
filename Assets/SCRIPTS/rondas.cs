@@ -8,8 +8,10 @@ public class RoundSystem : MonoBehaviour
     public int maxRounds = 10;
 
     public TextMeshProUGUI roundText; // Ahora es pública para poder asignarla desde el Editor
-    public PlayerControl pc;
-    public EnemyControl ec;
+    public PlayerHealth ph;
+    public EnemyHealth eh;
+
+    public bool playerTurn = true;
 
 
     void Start()
@@ -17,10 +19,15 @@ public class RoundSystem : MonoBehaviour
         UpdateRoundText();
     }
 
-    public void AdvanceRound()
+    public void AdvanceRound(bool id)
     {
+        //if(id != playerTurn) return;
+
         currentRound++;
         UpdateRoundText();
+
+
+        playerTurn = !playerTurn;
 
         if (currentRound > maxRounds)
         {
@@ -32,6 +39,13 @@ public class RoundSystem : MonoBehaviour
             Debug.Log($"Comenzando la ronda {currentRound}");
             // Aquí podrías iniciar la siguiente ronda, por ejemplo, cargar nuevos enemigos o reiniciar los valores necesarios.
         }
+
+        /*
+        if(playerTurn == false)
+        {
+            eh.EnemyTurn();
+        }
+        */
     }
 
     public void UpdateRoundText()
