@@ -6,6 +6,6 @@ public class AdvanceRoundButton : MonoBehaviour
 
     public void OnClick()
     {
-        roundSystem.AdvanceRound();
+        roundSystem.AdvanceRound(true);
     }
 }
