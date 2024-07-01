@@ -19,6 +19,9 @@ public class CartaManager : MonoBehaviour
     [SerializeField] Transform handContainer;
 
     [SerializeField] List<GameObject> descarteList = new List<GameObject>();
+    [SerializeField] float offsetX = 1f;
+    [SerializeField] float offsetY = 1f;
+
 
     public void Start()
     {
@@ -53,6 +56,9 @@ public class CartaManager : MonoBehaviour
             // Hacer anim
             GameObject cardGO = Instantiate(go);
             cardGO.transform.SetParent(handContainer);
+            cardGO.transform.position += i * offsetX * Vector3.right;
+            cardGO.transform.position += offsetY * Vector3.up;
+
             yield return new WaitForSeconds(1f);
             manoList.Add(go);
             currentCartasList.RemoveAt(select);
