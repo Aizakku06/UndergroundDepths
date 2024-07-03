@@ -1531,21 +1531,21 @@ MonoBehaviour:
   cardQuantity: {fileID: 1779466688}
   discardCardQuantity: {fileID: 45498431}
   cartasList:
-  - {fileID: 1309789302}
-  - {fileID: 1309789302}
-  - {fileID: 1309789302}
-  - {fileID: 1309789302}
   - {fileID: 860392379}
   - {fileID: 860392379}
   - {fileID: 860392379}
-  - {fileID: 1309789302}
   - {fileID: 860392379}
-  - {fileID: 1309789302}
+  - {fileID: 860392379}
+  - {fileID: 860392379}
+  - {fileID: 860392379}
+  - {fileID: 860392379}
+  - {fileID: 860392379}
+  - {fileID: 860392379}
   cardsInHand: 5
   manoList: []
   handContainer: {fileID: 1270627712}
   descarteList: []
-  offsetX: 70
+  offsetX: 175
   offsetY: 350
 --- !u!1 &1005719091
 GameObject:
@@ -1899,11 +1899,6 @@ PrefabInstance:
       addedObject: {fileID: 674305581}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a518f81fa212759408869b58891bef6a, type: 3}
---- !u!1 &1309789302 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5493277874877546394, guid: a518f81fa212759408869b58891bef6a, type: 3}
-  m_PrefabInstance: {fileID: 1309789301}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1309789303 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6220199381283081270, guid: a518f81fa212759408869b58891bef6a, type: 3}
@@ -2155,6 +2150,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1009303853872647480, guid: a518f81fa212759408869b58891bef6a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 173.7267
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009303853872647480, guid: a518f81fa212759408869b58891bef6a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 278.2801
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009303853872647480, guid: a518f81fa212759408869b58891bef6a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -308.39288
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009303853872647480, guid: a518f81fa212759408869b58891bef6a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -298.73224
+      objectReference: {fileID: 0}
     - target: {fileID: 5493277874877546394, guid: a518f81fa212759408869b58891bef6a, type: 3}
       propertyPath: m_Name
       value: CartaAtkContainer
@@ -2221,11 +2232,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6220199381283081270, guid: a518f81fa212759408869b58891bef6a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 400.3
+      value: 740.3
       objectReference: {fileID: 0}
     - target: {fileID: 6220199381283081270, guid: a518f81fa212759408869b58891bef6a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50.4
+      value: -12.9
       objectReference: {fileID: 0}
     - target: {fileID: 6220199381283081270, guid: a518f81fa212759408869b58891bef6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
