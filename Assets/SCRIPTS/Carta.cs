@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class Carta : MonoBehaviour
 {
+
     public virtual void Action() { }
+
 }
