@@ -10,6 +10,8 @@ public class RoundSystem : MonoBehaviour
     public TextMeshProUGUI roundText; // Ahora es pública para poder asignarla desde el Editor
     public PlayerHealth ph;
     public EnemyHealth eh;
+    [SerializeField] CartaManager cm;
+
 
     public bool playerTurn = true;
 
@@ -37,6 +39,9 @@ public class RoundSystem : MonoBehaviour
         else
         {
             Debug.Log($"Comenzando la ronda {currentRound}");
+            cm.StartPlayerTurn();
+            EnergySystem es = FindAnyObjectByType<EnergySystem>();
+            es.ResetEnergy();
             // Aquí podrías iniciar la siguiente ronda, por ejemplo, cargar nuevos enemigos o reiniciar los valores necesarios.
         }
 

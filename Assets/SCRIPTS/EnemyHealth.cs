@@ -77,9 +77,12 @@ public class EnemyHealth : MonoBehaviour
         {
             int selected = Random.Range(0, actions.Count);
             EnemyAction currentAction = actions[selected];
+
+            Debug.Log("Action ... "+ selected, this);
+
             // Do Action
             float dmg = currentAction.dmg[Random.Range(0, currentAction.dmg.Count)];
-            float def = currentAction.def[Random.Range(0, currentAction.dmg.Count)];
+            float def = currentAction.def[Random.Range(0, currentAction.def.Count)];
 
 
             rondas.ph.Hurt((int)(dmg));

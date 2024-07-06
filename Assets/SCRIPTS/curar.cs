@@ -1,32 +1,92 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class Curar : Carta
+public class BotonCura : Carta, IPointerClickHandler
 {
-    // Referencia al script PlayerHealth
-    public PlayerHealth playerHealth;
+    public PlayerHealth playerHealth; // Referencia al script PlayerHealth del jugador
+    public EnergySystem energySystem; // Referencia al sistema de energía
+    [SerializeField] int healAmount = 10;
+    public CartaManager cartaManager;
 
-    // Cantidad de salud que se curará al jugador
-    public int cantidadDeCura = 10;
+    private bool isDestroyed = false;
+    private float doubleClickTimeThreshold = 0.5f; // Umbral de tiempo para el doble clic
+    private float lastClickTime = 0;
 
-    // Método para aumentar la salud en la cantidad especificada
-    public void CurarPlayer()
+    // Costo de energía para esta carta
+    public int energyCost = 1;
+
+    public void DescartarEstaCarta()
     {
-        // Verificamos que playerHealth no sea nulo
-        if (playerHealth != null)
+        cartaManager.DescartarCarta(this.transform.parent.gameObject); // Pasar el GameObject de la carta actual
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            // Aumentamos la salud en la cantidad especificada
-            playerHealth.Heal(cantidadDeCura);
+            // Verificar si es un doble clic
+            if (Time.time - lastClickTime < doubleClickTimeThreshold)
+            {
+                // Es un doble clic
+                if (energySystem.SpendEnergy(energyCost))
+                {
+                    CurarPlayer();
+                    isDestroyed = true; // Marcar la carta para destrucción después de curar
+
+                    // Desactivar visualmente el botón (opcional)
+                    GetComponent<Button>().interactable = false;
+                }
+                else
+                {
+                    Debug.Log("No hay suficiente energía para jugar esta carta.");
+                    // Aquí podrías agregar lógica adicional si el jugador no tiene suficiente energía
+                }
+            }
+            else
+            {
+                // Primer clic
+                lastClickTime = Time.time;
+            }
         }
-        else
+    }
+
+    private void CurarPlayer()
+    {
+        EnergySystem es = FindAnyObjectByType<EnergySystem>();
+        bool usedCard = es.SpendEnergy(energyCost);
+
+        if (usedCard)
         {
-            Debug.LogError("El componente PlayerHealth no está asignado.");
+            // Verifica si el jugador tiene el script PlayerHealth adjunto
+            if (playerHealth != null)
+            {
+                // Llama al método Heal para aumentar la vida del jugador
+                playerHealth.Heal(healAmount); // Cura al jugador
+            }
+            else
+            {
+                Debug.LogError("¡No se encontró el script PlayerHealth en el jugador!");
+            }
+            DescartarEstaCarta();
+        }
+    }
+
+    private void Update()
+    {
+        // Verificar si la carta debe ser destruida después del doble clic
+        if (isDestroyed)
+        {
+            if (Time.time - lastClickTime >= doubleClickTimeThreshold)
+            {
+                Destroy(gameObject); // Destruir la carta después de un tiempo
+            }
         }
     }
 
     public override void Action()
     {
         base.Action();
-        CurarPlayer();
+        // CurarPlayer(); // Esta línea se puede activar si se desea curar al jugador en algún otro momento
     }
 }
-

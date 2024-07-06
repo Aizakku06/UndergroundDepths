@@ -52,15 +52,16 @@ public class CartaManager : MonoBehaviour
             cardGO.transform.SetParent(handContainer);
             cardGO.transform.position += i * offsetX * Vector3.right;
             cardGO.transform.position += offsetY * Vector3.up;
+            cardGO.GetComponentInChildren<Carta>().cartaMazo = go;
+            manoList.Add(cardGO);
 
             yield return new WaitForSeconds(1f);
-            manoList.Add(go);
             currentCartasList.RemoveAt(select);
             UpdateText();
 
             if (currentCartasList.Count == 0)
             {
-                for (int j = 0; j < cardsInHand; j++)
+                for (int j = 0; j < descarteList.Count; j++)
                 {
                     currentCartasList.Add(descarteList[j]);
                 }
@@ -80,10 +81,20 @@ public class CartaManager : MonoBehaviour
         currentCartasList.Clear();
     }
 
+    public void DropAllHand()
+    {
+        Debug.Log("Drop Hand");
+        while (manoList.Count > 0)
+        {
+            DescartarCarta(manoList[0]);
+        }
+    }
+
     // Función para agregar una carta específica a la lista de descarte
     public void DescartarCarta(GameObject carta)
     {
-        descarteList.Add(carta);
+        descarteList.Add(carta.GetComponentInChildren<Carta>().cartaMazo);
+
         manoList.Remove(carta); // Opcional: remover la carta de la lista de mano si es necesario
         Destroy(carta); // Opcional: destruir el GameObject de la carta
         UpdateText();

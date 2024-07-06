@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6220199381283081270}
-  - component: {fileID: 6533255812051574245}
   m_Layer: 5
   m_Name: CartaAtkContainer
   m_TagString: Untagged
@@ -34,23 +33,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 365, y: 50}
+  m_AnchoredPosition: {x: 324.5, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6533255812051574245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5493277874877546394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c990b9ba6daf2c14ca255ebd7dc0dddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: {fileID: 0}
-  dmg: 10
 --- !u!1001 &7786823118080761667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63,6 +48,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: carta atk
       objectReference: {fileID: 0}
+    - target: {fileID: 349111380423667990, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
+      propertyPath: cartaMazo
+      value: 
+      objectReference: {fileID: 7960015299868807910}
+    - target: {fileID: 2783322603381679428, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783322603381679428, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7550303114582175317}
+    - target: {fileID: 2783322603381679428, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AtacarEnemigo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783322603381679428, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DescartarEstaCarta
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783322603381679428, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: BotonAtaque, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3495127713854073922, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1415863231, guid: 37ad6e6f7935aa7409d0dc75e6c41d37, type: 3}
     - target: {fileID: 7066603972722938491, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -89,11 +102,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7066603972722938491, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 95.4442
+      value: 74.3525
       objectReference: {fileID: 0}
     - target: {fileID: 7066603972722938491, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 147.8692
+      value: 120.1364
       objectReference: {fileID: 0}
     - target: {fileID: 7066603972722938491, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
       propertyPath: m_LocalPosition.x
@@ -125,11 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7066603972722938491, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -268.8
+      value: -358.43964
       objectReference: {fileID: 0}
     - target: {fileID: 7066603972722938491, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -233.8
+      value: -350.384
       objectReference: {fileID: 0}
     - target: {fileID: 7066603972722938491, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -151,5 +164,21 @@ PrefabInstance:
 --- !u!224 &1009303853872647480 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7066603972722938491, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
+  m_PrefabInstance: {fileID: 7786823118080761667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7550303114582175317 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 349111380423667990, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
+  m_PrefabInstance: {fileID: 7786823118080761667}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7960015299868807910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c990b9ba6daf2c14ca255ebd7dc0dddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7960015299868807910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 173386263575530917, guid: 75339189e6cb6db4ba95dabafa104f63, type: 3}
   m_PrefabInstance: {fileID: 7786823118080761667}
   m_PrefabAsset: {fileID: 0}
