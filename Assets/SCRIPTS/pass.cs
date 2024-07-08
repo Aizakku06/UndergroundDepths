@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class AdvanceRoundButton : MonoBehaviour
 {
     private RoundSystem roundSystem;
     private CartaManager cartaManager;
     public float disableDuration = 2.0f; // Duración en segundos para desactivar el botón
+    [SerializeField] UnityEvent onUseCard;
+    [SerializeField] Animator playerAnim;
 
     void Start()
     {
@@ -27,6 +31,9 @@ public class AdvanceRoundButton : MonoBehaviour
         // Verificar si el jugador tiene 5 cartas en su mano
         if (cartaManager.manoList.Count == 5)
         {
+            onUseCard.Invoke();
+           
+
             // Avanzar la ronda
             roundSystem.AdvanceRound(true);
 
@@ -45,5 +52,9 @@ public class AdvanceRoundButton : MonoBehaviour
     void EnableButton()
     {
         gameObject.SetActive(true);
+    }
+    public void ea()
+    {
+        playerAnim.SetBool("atk", true);
     }
 }

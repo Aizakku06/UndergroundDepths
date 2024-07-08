@@ -1626,7 +1626,7 @@ GameObject:
   - component: {fileID: 957698081}
   - component: {fileID: 957698080}
   m_Layer: 5
-  m_Name: atake enemigo
+  m_Name: idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2678,7 +2678,6 @@ GameObject:
   - component: {fileID: 1362139323}
   - component: {fileID: 1362139322}
   - component: {fileID: 1362139321}
-  - component: {fileID: 1362139325}
   m_Layer: 5
   m_Name: ff
   m_TagString: Untagged
@@ -2719,6 +2718,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableDuration: 4
+  onUseCard:
+    m_PersistentCalls:
+      m_Calls: []
+  playerAnim: {fileID: 0}
 --- !u!114 &1362139322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2787,17 +2790,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 957698080}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 1362139321}
+        m_TargetAssemblyTypeName: AdvanceRoundButton, Assembly-CSharp
+        m_MethodName: ea
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1362139319}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -2806,6 +2809,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2849,27 +2864,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362139319}
   m_CullTransparentMesh: 1
---- !u!95 &1362139325
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362139319}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f6ef22e703b750e43b5a9d9ac92aeb0a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1478901118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2883,7 +2877,7 @@ GameObject:
   - component: {fileID: 1478901121}
   - component: {fileID: 1478901120}
   m_Layer: 5
-  m_Name: animacion atak
+  m_Name: idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2918,7 +2912,7 @@ Animator:
   m_GameObject: {fileID: 1478901118}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a0778861095ff9945b587162812f93a1, type: 2}
+  m_Controller: {fileID: 9100000, guid: ebcbfc6d2c1bec14fabf7ea0011d178b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3364,7 +3358,7 @@ PrefabInstance:
     - target: {fileID: 7550303114582175317, guid: a518f81fa212759408869b58891bef6a, type: 3}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 1478901118}
+      objectReference: {fileID: 0}
     - target: {fileID: 7550303114582175317, guid: a518f81fa212759408869b58891bef6a, type: 3}
       propertyPath: cartaMazo
       value: 
@@ -3373,6 +3367,10 @@ PrefabInstance:
       propertyPath: energyCost
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7550303114582175317, guid: a518f81fa212759408869b58891bef6a, type: 3}
+      propertyPath: playerAnim
+      value: 
+      objectReference: {fileID: 1478901120}
     - target: {fileID: 7550303114582175317, guid: a518f81fa212759408869b58891bef6a, type: 3}
       propertyPath: enemyHealth
       value: 
@@ -3387,7 +3385,7 @@ PrefabInstance:
       objectReference: {fileID: 253767620}
     - target: {fileID: 7550303114582175317, guid: a518f81fa212759408869b58891bef6a, type: 3}
       propertyPath: onUseCard.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7550303114582175317, guid: a518f81fa212759408869b58891bef6a, type: 3}
       propertyPath: onUseCard.m_PersistentCalls.m_Calls.Array.data[0].m_Mode

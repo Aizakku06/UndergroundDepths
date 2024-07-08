@@ -14,6 +14,7 @@ public class BotonAtaque : Carta, IPointerClickHandler
     private bool isDestroyed = false;
 
     [SerializeField] UnityEvent onUseCard;
+    [SerializeField] Animator playerAnim;
 
     // Costo de energía para esta carta
     public int energyCost = 1;
@@ -31,8 +32,10 @@ public class BotonAtaque : Carta, IPointerClickHandler
             if (energySystem.SpendEnergy(energyCost))
             {
                 onUseCard.Invoke();
+                playerAnim.SetBool("ATK",true);
                 AtacarEnemigo();
                 isDestroyed = true; // Marcar la carta para destrucción después del ataque
+                DescartarEstaCarta();
 
                 // Desactivar visualmente el botón (opcional)
                 GetComponent<Button>().interactable = false;
@@ -52,6 +55,7 @@ public class BotonAtaque : Carta, IPointerClickHandler
 
     private void AtacarEnemigo()
     {
+        DescartarEstaCarta();
         // Verifica si el enemigo tiene el script EnemyHealth adjunto
         if (enemyHealth != null)
         {
@@ -64,7 +68,7 @@ public class BotonAtaque : Carta, IPointerClickHandler
         {
             Debug.LogError("¡No se encontró el script EnemyHealth en el enemigo!");
         }
-        DescartarEstaCarta();
+        
     }
 
     public void TurnOffAnim()
