@@ -12,12 +12,13 @@ public class CartaManager : MonoBehaviour
     [SerializeField] static List<GameObject> currentCartasList = new List<GameObject>();
 
     public int cardsInHand = 5;
-    [SerializeField] List<GameObject> manoList = new List<GameObject>();
+    [SerializeField] public List<GameObject> manoList = new List<GameObject>();
     [SerializeField] Transform handContainer;
 
     [SerializeField] List<GameObject> descarteList = new List<GameObject>();
     [SerializeField] float offsetX = 1f;
     [SerializeField] float offsetY = 1f;
+    [SerializeField] GameObject button;
 
     public void Start()
     {
@@ -43,6 +44,7 @@ public class CartaManager : MonoBehaviour
 
     IEnumerator SacarCartas()
     {
+        button.SetActive(false);
         for (int i = 0; i < cardsInHand; i++)
         {
             int select = Random.Range(0, currentCartasList.Count);
@@ -70,6 +72,7 @@ public class CartaManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.02f);
+        button.SetActive(true);
     }
 
     public void EndOFTurn()
@@ -79,6 +82,7 @@ public class CartaManager : MonoBehaviour
             descarteList.Add(currentCartasList[i]);
         }
         currentCartasList.Clear();
+        button.SetActive(false);
     }
 
     public void DropAllHand()

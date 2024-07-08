@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class BotonCura : Carta, IPointerClickHandler
 {
@@ -8,7 +9,8 @@ public class BotonCura : Carta, IPointerClickHandler
     public EnergySystem energySystem; // Referencia al sistema de energía
     [SerializeField] int healAmount = 10;
     public CartaManager cartaManager;
-
+    [SerializeField] GameObject anim;
+    [SerializeField] float timeToTurnOffAnimation = 1;
     private bool isDestroyed = false;
 
     // Costo de energía para esta carta
@@ -42,18 +44,15 @@ public class BotonCura : Carta, IPointerClickHandler
 
     private void CurarPlayer()
     {
-        // Verifica si el jugador tiene el script PlayerHealth adjunto
-        if (playerHealth != null)
-        {
-            // Llama al método Heal para aumentar la vida del jugador
-            playerHealth.Heal(healAmount); // Cura al jugador
-        }
-        else
-        {
-            Debug.LogError("¡No se encontró el script PlayerHealth en el jugador!");
-        }
+        anim.SetActive(true);
         DescartarEstaCarta();
     }
+
+    public void TurnOffAnim()
+    {
+        anim.SetActive(false);
+    }
+
 
     private void Update()
     {

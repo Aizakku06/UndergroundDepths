@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int currentHealth; // Cambiado a público
     [SerializeField] UnityEvent onPlayerDeath;
     [SerializeField] Image healthBar;
+    [SerializeField] Image HealAnimation;
 
     public void Start()
     {
@@ -40,5 +41,10 @@ public class PlayerHealth : MonoBehaviour
     void UpdateCurrentHealth()
     {
         healthBar.fillAmount = (1.0f * currentHealth) / health;
+    }
+
+    public void TurnOffHeal()
+    {
+        HealAnimation.gameObject.SetActive(false);
     }
 }

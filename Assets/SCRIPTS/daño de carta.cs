@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class BotonAtaque : Carta, IPointerClickHandler
@@ -8,10 +9,11 @@ public class BotonAtaque : Carta, IPointerClickHandler
     public EnergySystem energySystem; // Referencia al sistema de energía
     [SerializeField] int dmg = 10;
     public CartaManager cartaManager;
-
+    [SerializeField] GameObject anim;
+    [SerializeField] float timeToTurnOffAnimation = 1;
     private bool isDestroyed = false;
-    private float doubleClickTimeThreshold = 0.5f; // Umbral de tiempo para el doble clic
-    private float lastClickTime = 0;
+
+    [SerializeField] UnityEvent onUseCard;
 
     // Costo de energía para esta carta
     public int energyCost = 1;
@@ -25,67 +27,71 @@ public class BotonAtaque : Carta, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            // Verificar si es un doble clic
-            if (Time.time - lastClickTime < doubleClickTimeThreshold)
+            // Verificar si hay suficiente energía
+            if (energySystem.SpendEnergy(energyCost))
             {
-                // Es un doble clic
-                if (energySystem.SpendEnergy(energyCost))
-                {
-                    AtacarEnemigo();
-                    isDestroyed = true; // Marcar la carta para destrucción después del ataque
+                onUseCard.Invoke();
+                AtacarEnemigo();
+                isDestroyed = true; // Marcar la carta para destrucción después del ataque
 
-                    // Desactivar visualmente el botón (opcional)
-                    GetComponent<Button>().interactable = false;
-                }
-                else
-                {
-                    Debug.Log("No hay suficiente energía para jugar esta carta.");
-                    // Aquí podrías agregar lógica adicional si el jugador no tiene suficiente energía
-                }
+                // Desactivar visualmente el botón (opcional)
+                GetComponent<Button>().interactable = false;
             }
             else
             {
-                // Primer clic
-                lastClickTime = Time.time;
+                Debug.Log("No hay suficiente energía para jugar esta carta.");
+                // Aquí podrías agregar lógica adicional si el jugador no tiene suficiente energía
             }
+        }
+        else if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            // Lógica para clic derecho (activar animación, por ejemplo)
+            ActivarAnimacion();
         }
     }
 
     private void AtacarEnemigo()
     {
-        EnergySystem es = FindAnyObjectByType<EnergySystem>();
-        bool usedCard = es.SpendEnergy(energyCost);
-
-        if (usedCard) { 
         // Verifica si el enemigo tiene el script EnemyHealth adjunto
         if (enemyHealth != null)
         {
             // Llama al método Hurt para reducir la vida del enemigo
             enemyHealth.Hurt(dmg); // Inflige el daño al enemigo
+            anim.SetActive(true); // Activar la animación
+            Invoke("TurnOffAnim", timeToTurnOffAnimation); // Desactivar la animación después de un tiempo
         }
         else
         {
             Debug.LogError("¡No se encontró el script EnemyHealth en el enemigo!");
         }
         DescartarEstaCarta();
-        }
+    }
+
+    public void TurnOffAnim()
+    {
+        anim.SetActive(false);
     }
 
     private void Update()
     {
-        // Verificar si la carta debe ser destruida después del doble clic
+        // Verificar si la carta debe ser destruida
         if (isDestroyed)
         {
-            if (Time.time - lastClickTime >= doubleClickTimeThreshold)
-            {
-                Destroy(gameObject); // Destruir la carta después de un tiempo
-            }
+            Destroy(gameObject); // Destruir la carta
         }
     }
 
     public override void Action()
     {
         base.Action();
-        // CurarPlayer();
+        // Este método puede ser utilizado para otras acciones si es necesario
+    }
+
+    private void ActivarAnimacion()
+    {
+        // Aquí puedes activar la animación deseada para el clic derecho
+        // Por ejemplo:
+        anim.SetActive(true);
+        Invoke("TurnOffAnim", timeToTurnOffAnimation); // Desactivar la animación después de un tiempo
     }
 }
