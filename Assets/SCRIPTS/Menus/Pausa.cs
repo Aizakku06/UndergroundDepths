@@ -18,16 +18,14 @@ public class Pausa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(Stop == false)
+            if (Stop == false)
             {
                 ObjectMenuPausa.SetActive(true);
                 Stop = true;
 
                 Time.timeScale = 0;
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
             }
             else if(Stop == true)
             {
@@ -43,8 +41,6 @@ public class Pausa : MonoBehaviour
         Stop = false;
 
         Time.timeScale = 1;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void IrAlMenu(string MainMenu)
