@@ -5,11 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-   public void EmpezarNivel(string Mike)
+    public void EmpezarNivel(string sceneName)
     {
-        SceneManager.LoadScene(Mike);
+        SceneManager.LoadScene(sceneName);
     }
-    
+
+    public void EmpezarNivelAditivo(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+    }
+
     public void Salir()
     {
         Application.Quit();
