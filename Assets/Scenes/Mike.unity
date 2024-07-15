@@ -907,6 +907,7 @@ MonoBehaviour:
   maxEnergy: 3
   currentEnergy: 3
   energyText: {fileID: 455781537}
+  cooldownTime: 2
 --- !u!95 &253767621
 Animator:
   serializedVersion: 5
@@ -2910,7 +2911,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onCardStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1478901120}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: "da\xF1o"
+          m_BoolArgument: 0
+        m_CallState: 2
   onCardMiddle:
     m_PersistentCalls:
       m_Calls:
@@ -2921,7 +2934,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 30
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4788,6 +4801,7 @@ GameObject:
   - component: {fileID: 1478901122}
   - component: {fileID: 1478901121}
   - component: {fileID: 1478901120}
+  - component: {fileID: 1478901123}
   m_Layer: 5
   m_Name: player body
   m_TagString: Untagged
@@ -4873,6 +4887,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478901118}
   m_CullTransparentMesh: 1
+--- !u!114 &1478901123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478901118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22c629cbd317fe469ce379cac1b4885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCardStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 957698080}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: "da\xF1o"
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCardMiddle:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1546403118}
+        m_TargetAssemblyTypeName: EnemyHealth, Assembly-CSharp
+        m_MethodName: Hurt
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCardsEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1502363819
 GameObject:
   m_ObjectHideFlags: 0
@@ -5817,7 +5876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7550303114582175317, guid: a518f81fa212759408869b58891bef6a, type: 3}
       propertyPath: dmg
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7550303114582175317, guid: a518f81fa212759408869b58891bef6a, type: 3}
       propertyPath: anim

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: atak
+  m_Name: "da\xF1o"
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,19 +21,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 838569776550eba4da0fde339ce16769, type: 3}
-    - time: 0
-      value: {fileID: 21300000, guid: af41a051dafaa734b9e2472ac6872792, type: 3}
-    - time: 0.11666667
-      value: {fileID: 21300000, guid: ec29027ef4fdb9844818fd32471025c6, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: 31f157db67a9eb348aed8e5de898fea7, type: 3}
-    - time: 0.36666667
-      value: {fileID: 21300000, guid: a688d6f4caf6b3c4780aad4624c35890, type: 3}
+      value: {fileID: 21300000, guid: f8ec030be6ace54478377809176a6c03, type: 3}
+    - time: 0.18333334
+      value: {fileID: 21300000, guid: 85520eb2f7e7c09448c9becb41a53992, type: 3}
+    - time: 0.31666666
+      value: {fileID: 21300000, guid: 12403b5cbf97ddb459796c079606e32b, type: 3}
     - time: 0.5
-      value: {fileID: 21300000, guid: ec29027ef4fdb9844818fd32471025c6, type: 3}
-    - time: 0.6666667
-      value: {fileID: 21300000, guid: af41a051dafaa734b9e2472ac6872792, type: 3}
+      value: {fileID: 21300000, guid: f953132f05358bd4bb9592c7bbedf99f, type: 3}
+    - time: 0.68333334
+      value: {fileID: 21300000, guid: 58ef51db909564544b7ab763d845159d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -56,24 +52,22 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 838569776550eba4da0fde339ce16769, type: 3}
-    - {fileID: 21300000, guid: af41a051dafaa734b9e2472ac6872792, type: 3}
-    - {fileID: 21300000, guid: ec29027ef4fdb9844818fd32471025c6, type: 3}
-    - {fileID: 21300000, guid: 31f157db67a9eb348aed8e5de898fea7, type: 3}
-    - {fileID: 21300000, guid: a688d6f4caf6b3c4780aad4624c35890, type: 3}
-    - {fileID: 21300000, guid: ec29027ef4fdb9844818fd32471025c6, type: 3}
-    - {fileID: 21300000, guid: af41a051dafaa734b9e2472ac6872792, type: 3}
+    - {fileID: 21300000, guid: f8ec030be6ace54478377809176a6c03, type: 3}
+    - {fileID: 21300000, guid: 85520eb2f7e7c09448c9becb41a53992, type: 3}
+    - {fileID: 21300000, guid: 12403b5cbf97ddb459796c079606e32b, type: 3}
+    - {fileID: 21300000, guid: f953132f05358bd4bb9592c7bbedf99f, type: 3}
+    - {fileID: 21300000, guid: 58ef51db909564544b7ab763d845159d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.68333334
+    m_StopTime: 0.7
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -87,18 +81,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.25
-    functionName: OnStartCard
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.36666667
-    functionName: OnMiddleCard
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []
