@@ -20,6 +20,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] UnityEvent onEnemyDeath;
     [SerializeField] Image healthBar;
 
+    public Animator animator;
+
     [SerializeField] List<EnemyAction> actions;
     [SerializeField] int actionsToDo = 1;
     public RoundSystem rondas;
@@ -28,6 +30,8 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = health;
         UpdateCurrentHeath();
+
+          
     }
 
     public void Hurt(int damage)
@@ -71,6 +75,7 @@ public class EnemyHealth : MonoBehaviour
     IEnumerator MyTurn()
     {
         yield return new WaitForSeconds(1);
+
         // ATK OR DEFENSE
 
         for (int i = 0; i < actionsToDo; i++)
@@ -78,19 +83,24 @@ public class EnemyHealth : MonoBehaviour
             int selected = Random.Range(0, actions.Count);
             EnemyAction currentAction = actions[selected];
 
-            Debug.Log("Action ... "+ selected, this);
+            Debug.Log("Action ... " + selected, this);
 
             // Do Action
             float dmg = currentAction.dmg[Random.Range(0, currentAction.dmg.Count)];
             float def = currentAction.def[Random.Range(0, currentAction.def.Count)];
 
-
+            // Aplicar daño al jugador u otra lógica aquí
             rondas.ph.Hurt((int)(dmg));
-            def += def;
+
+            // Activar el trigger de la animación
+            if (animator != null)
+            {
+                animator.SetTrigger("atk");  // Reemplaza "AttackTrigger" con el nombre del trigger de tu animación de ataque
+            }
+
             yield return new WaitForSeconds(1);
         }
 
-        
         rondas.AdvanceRound(false);
     }
 }

@@ -2810,6 +2810,7 @@ GameObject:
   - component: {fileID: 957698082}
   - component: {fileID: 957698081}
   - component: {fileID: 957698080}
+  - component: {fileID: 957698083}
   m_Layer: 5
   m_Name: enemy body
   m_TagString: Untagged
@@ -2895,6 +2896,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957698078}
   m_CullTransparentMesh: 1
+--- !u!114 &957698083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957698078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22c629cbd317fe469ce379cac1b4885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCardStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onCardMiddle:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1795121971}
+        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
+        m_MethodName: Hurt
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 20
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCardsEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &967166354
 GameObject:
   m_ObjectHideFlags: 0
@@ -4437,18 +4471,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 957698080}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: atk
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &1362139323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5017,14 +5039,13 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   healthBar: {fileID: 125718966}
+  animator: {fileID: 957698080}
   actions:
   - dmg:
-    - 20
-    - 20
+    - 0
     def:
     - 0
-    - 0
-  actionsToDo: 2
+  actionsToDo: 1
   rondas: {fileID: 1005719095}
 --- !u!4 &1546403119
 Transform:
