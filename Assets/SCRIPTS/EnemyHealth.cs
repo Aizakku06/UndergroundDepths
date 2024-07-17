@@ -1,55 +1,29 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class EnemyAction
-{
-    public List<float> dmg;
-    public List<float> def;
-
-}
-
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] int health;
-    [SerializeField] int def;
     [SerializeField] int currentHealth;
     [SerializeField] UnityEvent onEnemyDeath;
     [SerializeField] Image healthBar;
 
-    public Animator animator;
+    public Animator animator; // Asegúrate de asignar el Animator en el inspector
 
-    [SerializeField] List<EnemyAction> actions;
-    [SerializeField] int actionsToDo = 1;
-    public RoundSystem rondas;
+    public RoundSystem rondas; // Asumiendo que tienes una referencia a RoundSystem para avanzar rondas
 
     public void Start()
     {
         currentHealth = health;
-        UpdateCurrentHeath();
-
-          
+        UpdateCurrentHealth();
     }
 
     public void Hurt(int damage)
     {
-        if(def > 0)
-        {
-            def -= damage;
-            if(def < 0)
-            {
-                damage = def * -1;
-            }
-            else
-            {
-                damage = 0;
-            }
-        }
         currentHealth -= damage;
-        UpdateCurrentHeath();
+        UpdateCurrentHealth();
         if (currentHealth <= 0)
         {
             onEnemyDeath.Invoke();
@@ -58,49 +32,40 @@ public class EnemyHealth : MonoBehaviour
 
     public void Heal(int damage)
     {
-        UpdateCurrentHeath();
         currentHealth += damage;
+        UpdateCurrentHealth();
     }
 
-    void UpdateCurrentHeath()
+    void UpdateCurrentHealth()
     {
-        healthBar.fillAmount = (1.0f * currentHealth)/health;
+        healthBar.fillAmount = (1.0f * currentHealth) / health;
     }
 
     public void EnemyTurn()
     {
-        StartCoroutine(MyTurn());
+        StartCoroutine(PerformRandomAttack());
     }
 
-    IEnumerator MyTurn()
+    IEnumerator PerformRandomAttack()
     {
         yield return new WaitForSeconds(1);
 
-        // ATK OR DEFENSE
+        // Escoger un trigger aleatorio
+        string[] attackTriggers = { "accion1", "accion2", }; // Ejemplo de nombres de triggers de ataque
 
-        for (int i = 0; i < actionsToDo; i++)
+        int randomIndex = Random.Range(0, attackTriggers.Length);
+        string randomTrigger = attackTriggers[randomIndex];
+
+        Debug.Log("Trigger Activado: " + randomTrigger);
+
+        // Activar el trigger en el Animator
+        if (animator != null)
         {
-            int selected = Random.Range(0, actions.Count);
-            EnemyAction currentAction = actions[selected];
-
-            Debug.Log("Action ... " + selected, this);
-
-            // Do Action
-            float dmg = currentAction.dmg[Random.Range(0, currentAction.dmg.Count)];
-            float def = currentAction.def[Random.Range(0, currentAction.def.Count)];
-
-            // Aplicar daño al jugador u otra lógica aquí
-            rondas.ph.Hurt((int)(dmg));
-
-            // Activar el trigger de la animación
-            if (animator != null)
-            {
-                animator.SetTrigger("atk");  // Reemplaza "AttackTrigger" con el nombre del trigger de tu animación de ataque
-            }
-
-            yield return new WaitForSeconds(1);
+            animator.SetTrigger(randomTrigger);
         }
 
-        rondas.AdvanceRound(false);
+        yield return new WaitForSeconds(1);
+
+        rondas.AdvanceRound(false); // Avanzar la ronda
     }
 }

@@ -4937,7 +4937,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  def: 0
   currentHealth: 0
   onEnemyDeath:
     m_PersistentCalls:
@@ -4955,13 +4954,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   healthBar: {fileID: 125718966}
-  animator: {fileID: 0}
-  actions:
-  - dmg:
-    - 0
-    def:
-    - 0
-  actionsToDo: 1
+  animator: {fileID: 1628221665}
   rondas: {fileID: 1005719095}
 --- !u!4 &1546403119
 Transform:
@@ -5741,7 +5734,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   healthBar: {fileID: 1184084945}
-  HealAnimation: {fileID: 0}
+  HealAnimation: {fileID: 125718966}
 --- !u!1001 &1914923952
 PrefabInstance:
   m_ObjectHideFlags: 0
