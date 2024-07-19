@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 61400882}
   - component: {fileID: 61400884}
   - component: {fileID: 61400883}
+  - component: {fileID: 61400885}
   m_Layer: 5
   m_Name: undertoken
   m_TagString: Untagged
@@ -333,6 +334,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61400881}
   m_CullTransparentMesh: 1
+--- !u!95 &61400885
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61400881}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 31fc85855dccc774c802757b86b042bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &105652989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1227,6 +1249,7 @@ GameObject:
   - component: {fileID: 333689213}
   - component: {fileID: 333689215}
   - component: {fileID: 333689214}
+  - component: {fileID: 333689216}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1250,8 +1273,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.476}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.0000143, y: 9.000003}
-  m_SizeDelta: {x: 380.9211, y: 533.59}
+  m_AnchoredPosition: {x: -2, y: -3}
+  m_SizeDelta: {x: 371.6441, y: 507.4684}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &333689214
 MonoBehaviour:
@@ -1291,6 +1314,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333689212}
   m_CullTransparentMesh: 1
+--- !u!95 &333689216
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333689212}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c9c617549d39842449e0c18cdc94d459, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &343488799
 PrefabInstance:
   m_ObjectHideFlags: 0
