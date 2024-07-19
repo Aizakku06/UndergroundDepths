@@ -33,6 +33,7 @@ public class EnemyHealth : MonoBehaviour
     public void Heal(int damage)
     {
         currentHealth += damage;
+        currentHealth = Mathf.Clamp(currentHealth,0,health);
         UpdateCurrentHealth();
     }
 
