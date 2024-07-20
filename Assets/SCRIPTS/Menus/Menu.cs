@@ -15,6 +15,16 @@ public class NewBehaviourScript : MonoBehaviour
         SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
     }
 
+    public void EmpezarTuorial(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void EmpezarTutorialAditivo(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+    }
+
     public void Salir()
     {
         Application.Quit();
