@@ -15,14 +15,23 @@ EditorBuildSettings:
     path: Assets/Scenes/tutorialescena.unity
     guid: 46f80e349f1b97f42b1549a713382598
   - enabled: 1
-    path: Assets/Scenes/mike ecena.unity
-    guid: 72d45b7e36c942c4c9f90a73656a0244
-  - enabled: 1
     path: Assets/Scenes/Mike.unity
     guid: 7bdac9e399fb5404e9f17d6a7eae0730
   - enabled: 1
+    path: Assets/Scenes/mike ecena.unity
+    guid: 72d45b7e36c942c4c9f90a73656a0244
+  - enabled: 1
     path: Assets/Scenes/Mike 2.unity
     guid: 7009f6606858413499101db170eefc11
+  - enabled: 1
+    path: Assets/Scenes/Mike 2 ecena.unity
+    guid: 531f6c2cbf430a344b71ea9dab8f396c
+  - enabled: 1
+    path: Assets/Scenes/Mike 3.unity
+    guid: e8e396515a16c3547ac572f88bb5cf1b
+  - enabled: 1
+    path: Assets/Scenes/Mike 3 ecena 1.unity
+    guid: 17689205a710654439dd8f27f5f657f2
   - enabled: 1
     path: Assets/Scenes/GameOverScene.unity
     guid: ccddbbcadafb7ae4eaf7bd7dd9b92418
