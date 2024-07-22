@@ -15,7 +15,6 @@ public class EnergySystem : MonoBehaviour
     {
         UpdateEnergyUI();
     }
-
     // Función para actualizar el texto que muestra la energía actual
     void UpdateEnergyUI()
     {
