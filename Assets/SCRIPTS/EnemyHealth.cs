@@ -1,7 +1,8 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // Asegúrate de incluir esto para trabajar con escenas
+using System.Collections; // Asegúrate de incluir esto para trabajar con IEnumerator
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -11,8 +12,9 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] Image healthBar;
 
     public Animator animator; // Asegúrate de asignar el Animator en el inspector
-
     public RoundSystem rondas; // Asumiendo que tienes una referencia a RoundSystem para avanzar rondas
+
+    [SerializeField] private string sceneToLoad; // Nombre de la escena a cargar
 
     public void Start()
     {
@@ -27,19 +29,23 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             onEnemyDeath.Invoke();
+            ChangeScene();
         }
     }
 
-    public void Heal(int damage)
+    public void Heal(int amount) // Cambiado el nombre del parámetro a 'amount' para mayor claridad
     {
-        currentHealth += damage;
-        currentHealth = Mathf.Clamp(currentHealth,0,health);
+        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, health);
         UpdateCurrentHealth();
     }
 
     void UpdateCurrentHealth()
     {
-        healthBar.fillAmount = (1.0f * currentHealth) / health;
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = (1.0f * currentHealth) / health;
+        }
     }
 
     public void EnemyTurn()
@@ -52,7 +58,7 @@ public class EnemyHealth : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         // Escoger un trigger aleatorio
-        string[] attackTriggers = { "accion1", "accion2", }; // Ejemplo de nombres de triggers de ataque
+        string[] attackTriggers = { "accion1", "accion2" }; // Ejemplo de nombres de triggers de ataque
 
         int randomIndex = Random.Range(0, attackTriggers.Length);
         string randomTrigger = attackTriggers[randomIndex];
@@ -69,4 +75,17 @@ public class EnemyHealth : MonoBehaviour
 
         rondas.AdvanceRound(false); // Avanzar la ronda
     }
+
+    void ChangeScene()
+    {
+        if (!string.IsNullOrEmpty(sceneToLoad)) // Verificar que el nombre de la escena no esté vacío
+        {
+            SceneManager.LoadScene(sceneToLoad); // Cargar la escena, reemplazando la actual
+        }
+        else
+        {
+            Debug.LogError("El nombre de la escena no está asignado.");
+        }
+    }
 }
+
