@@ -20,9 +20,22 @@ public class CartaManager : MonoBehaviour
     [SerializeField] float offsetY = 1f;
     [SerializeField] GameObject button;
 
+    void Awake()
+    {
+        // Verificar si ya hay una instancia de CartaManager y destruir esta si es duplicada
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); // Evitar que se destruya al cargar una nueva escena
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void Start()
     {
-        instance = this;
         if (currentCartasList.Count == 0)
         {
             currentCartasList = cartasList;
@@ -31,9 +44,10 @@ public class CartaManager : MonoBehaviour
         UpdateText();
         StartPlayerTurn();
     }
+
     private void Update()
     {
-        
+
     }
 
     public void UpdateText()
@@ -46,7 +60,7 @@ public class CartaManager : MonoBehaviour
     {
         StartCoroutine(SacarCartas());
     }
-    
+
     IEnumerator SacarCartas()
     {
         button.SetActive(false);

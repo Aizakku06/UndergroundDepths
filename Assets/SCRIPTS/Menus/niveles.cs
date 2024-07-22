@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviour
+public class niveles : MonoBehaviour
 {
-    public void EscenaNivel(string sceneName)
+    public void EmpezarNivel(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
 
-   
+    public void EmpezarNivelAditivo(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+    }
 
     public void EmpezarTuorial(string sceneName)
     {
@@ -22,9 +25,9 @@ public class NewBehaviourScript : MonoBehaviour
         SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
     }
 
-    public void Salir()
+    public void IrAlMenu(string MainMenu)
     {
-        Application.Quit();
-        Debug.Log("Aqui se cierra el juego");
+        SceneManager.LoadScene(MainMenu);
     }
+
 }

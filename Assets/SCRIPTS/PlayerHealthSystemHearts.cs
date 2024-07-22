@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -25,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             onPlayerDeath.Invoke();
+            LoadGameOverScene();
         }
     }
 
@@ -46,5 +48,11 @@ public class PlayerHealth : MonoBehaviour
     public void TurnOffHeal()
     {
         HealAnimation.gameObject.SetActive(false);
+    }
+
+    void LoadGameOverScene()
+    {
+        // Aquí cargamos la escena de Game Over
+        SceneManager.LoadScene("GameOverScene"); // Asegúrate de poner el nombre correcto de tu escena de Game Over
     }
 }
