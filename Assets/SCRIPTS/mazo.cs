@@ -7,7 +7,7 @@ public class CartaManager : MonoBehaviour
 {
     public TextMeshProUGUI cardQuantity;
     public TextMeshProUGUI discardCardQuantity;
-
+    public static CartaManager instance;
     [SerializeField] List<GameObject> cartasList = new List<GameObject>();
     [SerializeField] static List<GameObject> currentCartasList = new List<GameObject>();
 
@@ -22,6 +22,7 @@ public class CartaManager : MonoBehaviour
 
     public void Start()
     {
+        instance = this;
         if (currentCartasList.Count == 0)
         {
             currentCartasList = cartasList;
@@ -29,6 +30,10 @@ public class CartaManager : MonoBehaviour
 
         UpdateText();
         StartPlayerTurn();
+    }
+    private void Update()
+    {
+        
     }
 
     public void UpdateText()
@@ -41,7 +46,7 @@ public class CartaManager : MonoBehaviour
     {
         StartCoroutine(SacarCartas());
     }
-
+    
     IEnumerator SacarCartas()
     {
         button.SetActive(false);
