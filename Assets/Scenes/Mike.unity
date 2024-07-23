@@ -5402,7 +5402,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1502363820}
         m_TargetAssemblyTypeName: Pausa, Assembly-CSharp
-        m_MethodName: SalirDelJuego
+        m_MethodName: Salir
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
